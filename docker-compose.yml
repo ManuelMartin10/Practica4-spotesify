@@ -47,6 +47,7 @@ services:
       - ./music:/music
     networks:
       - frontend
+      - backend
     mem_limit: 128m
     restart: unless-stopped
 

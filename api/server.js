@@ -313,19 +313,19 @@ async function autoSeed() {
       console.log('[Seed] No hay ficheros MP3 en', MUSIC_DIR);
       return;
     }
-    for (const file of files) {
-      const id = path.basename(file, '.mp3');
-      const name = id.replace(/[-_]/g, ' ').replace(/\b\w/g, c => c.toUpperCase());
-      await redis.hset(`song:${id}`, {
-        title: name,
-        artist: 'Desconocido',
-        album: 'SpotESIfy',
-        genre: '',
-        duration: '0',
-        filename: file,
-      });
-      console.log(`  ✓ ${name} (${file})`);
-    }
+//    for (const file of files) {
+//      const id = path.basename(file, '.mp3');
+//      const name = id.replace(/[-_]/g, ' ').replace(/\b\w/g, c => c.toUpperCase());
+//      await redis.hset(`song:${id}`, {
+//        title: name,
+//        artist: 'Desconocido',
+//        album: 'SpotESIfy',
+//        genre: '',
+//        duration: '0',
+//        filename: file,
+//      });
+//      console.log(`  ✓ ${name} (${file})`);
+//    }
     console.log(`[Seed] ${files.length} canciones registradas.`);
   } catch (err) {
     console.error('[Seed] Error:', err.message);

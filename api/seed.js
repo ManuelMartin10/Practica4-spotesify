@@ -26,7 +26,7 @@ const songs = [
     album: 'SpotESIfy Selects',
     genre: 'Lo-Fi',
     duration: '94',
-    filename: 'sunset-waves.mp3',
+    filename: 'genxbeats-dungeon-type-rap-beat-20241116-300651.mp3',
   },
   {
     id: 'epic01',
@@ -35,7 +35,7 @@ const songs = [
     album: 'SpotESIfy Selects',
     genre: 'Cinematic',
     duration: '67',
-    filename: 'digital-horizons.mp3',
+    filename: 'kmacleod-attic-secrets-162040.mp3',
   },
   {
     id: 'jazz01',
@@ -44,7 +44,7 @@ const songs = [
     album: 'SpotESIfy Selects',
     genre: 'Jazz',
     duration: '108',
-    filename: 'midnight-coffee.mp3',
+    filename: 'mortaz-colorful-autumn-454654.mp3',
   },
   {
     id: 'electro01',
@@ -53,7 +53,7 @@ const songs = [
     album: 'SpotESIfy Selects',
     genre: 'Electronic',
     duration: '82',
-    filename: 'neon-pulse.mp3',
+    filename: 'mortaz-fading-colors-456885.mp3',
   },
   {
     id: 'acoustic01',
@@ -62,7 +62,7 @@ const songs = [
     album: 'SpotESIfy Selects',
     genre: 'Acoustic',
     duration: '75',
-    filename: 'morning-light.mp3',
+    filename: 'sonikai-cyberpunk-gaming-rave-no-copyright-music-robopanda-285862.mp3',
   },
 ];
 

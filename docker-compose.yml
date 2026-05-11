@@ -44,7 +44,7 @@ services:
       - REDIS_PASSWORD=spotesify123
       - MUSIC_DIR=/data/music
     volumes:
-      - ./music:/music
+      - ./music:/data/music
     networks:
       - frontend
       - backend

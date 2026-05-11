@@ -73,7 +73,7 @@ services:
       - COLLECT_INTERVAL=3000
     networks:
       - backend
-    mem_limit: 10m
+    mem_limit: 128m
     restart: unless-stopped
 
 # ── Redes ────────────────────────────────────────────────────────────────────

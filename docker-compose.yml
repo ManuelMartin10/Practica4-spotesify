@@ -47,7 +47,7 @@ services:
       - ./music:/music
     networks:
       - frontend
-    mem_limit: 15m
+    mem_limit: 128m
     restart: unless-stopped
 
   # ── DB: Redis (almacén de metadatos y playlists) ─────────────────────────

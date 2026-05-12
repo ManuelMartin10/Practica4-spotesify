@@ -1,11 +1,13 @@
-# SpotESIfy API - Dockerfile 
+# SpotESIfy API - Dockerfile (Optimizado)
 FROM node:20-alpine
 
 WORKDIR /app
 
-COPY . .
+COPY package*.json ./
 
 RUN apk add --no-cache curl && npm install
+
+COPY . .
 
 EXPOSE 5000
 

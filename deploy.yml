@@ -1,0 +1,53 @@
+---
+- name: Despliegue automatizado de SpotESIfy
+  hosts: localhost
+  connection: local
+  become: yes
+  vars:
+    app_dir: /opt/spotesify
+    source_dir: /home/alumno/spotesify
+
+  tasks:
+    - name: 1. Instalar Docker y Docker Compose
+      apt:
+        name:
+          - docker.io
+          - docker-compose-v2
+        state: present
+        update_cache: yes
+
+    - name: Asegurar que el servicio Docker esta iniciado y habilitado
+      systemd:
+        name: docker
+        state: started
+        enabled: yes
+
+    - name: 2. Crear directorio de destino para la aplicacion
+      file:
+        path: "{{ app_dir }}"
+        state: directory
+        mode: '0755'
+
+    - name: 2. Copiar los ficheros del proyecto al servidor de destino
+      copy:
+        src: "{{ source_dir }}/"
+        dest: "{{ app_dir }}/"
+        owner: root
+        group: root
+
+    - name: 3. Construir las imagenes y levantar los servicios
+      command: docker compose up -d --build
+      args:
+        chdir: "{{ app_dir }}"
+      register: compose_output
+      changed_when: "'Created' in compose_output.stdout or 'Started' in compose_output.stdout"
+
+    - name: Esperar 10 segundos para que Redis y la API esten 100% operativos
+      pause:
+        seconds: 10
+
+    - name: 4. Verificar que la aplicacion arranca correctamente (Frontend Nginx)
+      uri:
+        url: http://localhost:80
+        return_content: yes
+        status_code: 200
